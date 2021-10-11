@@ -12,6 +12,7 @@ export const createBoxGrid = (p: HTMLElement, n: number) => {
 
   for (let i = 1; i <= n; i++) {
     const box = createBox(i.toString());
+    box.tabIndex = i;
     grid.append(box);
   }
 

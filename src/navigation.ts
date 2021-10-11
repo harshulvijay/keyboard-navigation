@@ -53,13 +53,14 @@ export const getWidth = (el: HTMLElement): number => {
 };
 
 /**
- * Focuses on the `[data-number=<i>]` element in the children of `nc`
+ * Focuses on the `[data-<f>=<i>]` element in the children of `nc`
  *
  * @param {HTMLElement} nc navigation container
+ * @param {string} f field of the dataset to match against
  * @param {number} i index of the element to focus on
  */
-export const focusOn = (nc: HTMLElement, i: number) => {
-  const element = nc.querySelector(`[data-number="${i}"]`) as FocusableElement;
+export const focusOn = (nc: HTMLElement, f: string, i: number) => {
+  const element = nc.querySelector(`[data-${f}="${i}"]`) as FocusableElement;
 
   element?.focus();
 };

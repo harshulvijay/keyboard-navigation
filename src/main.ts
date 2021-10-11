@@ -17,7 +17,7 @@ const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
     ["arrowup", "w"],
     (o) => {
       const next = o.target.position - o.elements;
-      focusOn(grid, next);
+      focusOn(grid, "number", next);
     },
     false
   );
@@ -25,7 +25,7 @@ const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
     ["arrowdown", "s"],
     (o) => {
       const next = o.target.position + o.elements;
-      focusOn(grid, next);
+      focusOn(grid, "number", next);
     },
     false
   );
@@ -33,7 +33,7 @@ const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
     ["arrowleft", "a"],
     (o) => {
       const next = o.target.position - 1;
-      focusOn(grid, next);
+      focusOn(grid, "number", next);
     },
     false
   );
@@ -41,12 +41,12 @@ const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
     ["arrowright", "d"],
     (o) => {
       const next = o.target.position + 1;
-      focusOn(grid, next);
+      focusOn(grid, "number", next);
     },
     false
   );
-  addKbNavBehavior(["home"], () => focusOn(grid, 1), false);
-  addKbNavBehavior(["end"], () => focusOn(grid, grid.children.length), false);
+  addKbNavBehavior(["home"], () => focusOn(grid, "number", 1), false);
+  addKbNavBehavior(["end"], () => focusOn(grid, "number", grid.children.length), false);
   addKbNav(grid, ".box");
 };
 

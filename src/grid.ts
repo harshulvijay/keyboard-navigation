@@ -1,12 +1,11 @@
 import { createBox } from "./box";
 
 /**
- * Creates a grid element with `n` boxes and appends it to `p`
+ * Creates a grid element with `n` boxes
  *
- * @param {HTMLElement} p parent element of the grid
  * @param {number} n number of boxes in the grid
  */
-export const createBoxGrid = (p: HTMLElement, n: number) => {
+export const createBoxGrid = (n: number) => {
   const grid = document.createElement("div");
   grid.classList.add("grid");
 
@@ -16,5 +15,5 @@ export const createBoxGrid = (p: HTMLElement, n: number) => {
     grid.append(box);
   }
 
-  p.append(grid);
+  return grid;
 };

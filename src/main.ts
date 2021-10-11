@@ -9,7 +9,7 @@ const app = document.querySelector<HTMLDivElement>("#app")!;
  * @param {T extends HTMLElement = HTMLDivElement} root app's root component
  */
 const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
-  createBoxGrid(root, 10);
+  createBoxGrid(root, 100);
 };
 
 init<HTMLDivElement>(app);

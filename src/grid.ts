@@ -10,7 +10,7 @@ export const createBoxGrid = (p: HTMLElement, n: number) => {
   const grid = document.createElement("div");
   grid.classList.add("grid");
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 1; i <= n; i++) {
     const box = createBox(i.toString());
     grid.append(box);
   }

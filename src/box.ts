@@ -8,6 +8,7 @@ export const createBox = (t: string): HTMLDivElement => {
   const box = document.createElement("div");
   box.classList.add("box");
   box.id = `box box--${t}`;
+  box.dataset.number = t;
   box.innerText = t;
 
   return box;

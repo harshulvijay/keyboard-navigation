@@ -1,3 +1,5 @@
+import { createBox } from "./box";
+
 /**
  * Creates a grid element with `n` boxes and appends it to `p`
  *

@@ -4,7 +4,7 @@
  * @param {HTMLElement} p parent element of the grid
  * @param {number} n number of boxes in the grid
  */
-const createBoxGrid = (p: HTMLElement, n: number) => {
+export const createBoxGrid = (p: HTMLElement, n: number) => {
   const grid = document.createElement("div");
   grid.classList.add("grid");
 

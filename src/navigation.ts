@@ -160,22 +160,6 @@ export class KeyCombo {
 }
 
 /**
- * Checks if the key pressed is a modifier key
- *
- * @param {KeyboardEvent} e keyboard event
- * @returns {boolean}
- */
-export const modifierKeyPressed = (e: KeyboardEvent): boolean => {
-  return (
-    e.altKey ||
-    e.ctrlKey ||
-    e.metaKey ||
-    e.shiftKey ||
-    isModifierKey(e.key.toLowerCase())
-  );
-};
-
-/**
  * Adds behavior `f` for key(s) `k`, and "stacks" behaviors if `s` is set to
  * `true`
  *

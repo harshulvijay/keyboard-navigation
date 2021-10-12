@@ -166,7 +166,13 @@ export class KeyCombo {
  * @returns {boolean}
  */
 export const modifierKeyPressed = (e: KeyboardEvent): boolean => {
-  return e.altKey && e.ctrlKey && e.metaKey && e.shiftKey;
+  return (
+    e.altKey ||
+    e.ctrlKey ||
+    e.metaKey ||
+    e.shiftKey ||
+    isModifierKey(e.key.toLowerCase())
+  );
 };
 
 /**

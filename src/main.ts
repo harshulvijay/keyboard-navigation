@@ -1,6 +1,6 @@
 import "./style.scss";
 import { createBoxGrid } from "./grid";
-import { addKbNav, addKbNavBehavior, focusOn } from "./navigation";
+import { addKbNav, addKbNavBehavior, focusOn, KeyCombo } from "./navigation";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
@@ -47,8 +47,34 @@ const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
   );
   addKbNavBehavior(["home"], () => focusOn(grid, "number", 1), false);
   addKbNavBehavior(
+    [new KeyCombo("shift", "home")],
+    (o) => {
+      let row = o.target.position / o.elements;
+      if (row % 1 === 0) {
+        row -= 1;
+      }
+
+      const pos = Math.floor(row) * o.elements + 1;
+      focusOn(grid, "number", pos);
+    },
+    false
+  );
+  addKbNavBehavior(
     ["end"],
     () => focusOn(grid, "number", grid.children.length),
+    false
+  );
+  addKbNavBehavior(
+    [new KeyCombo("shift", "end")],
+    (o) => {
+      let row = o.target.position / o.elements;
+      if (row % 1 === 0) {
+        row -= 1;
+      }
+
+      const pos = (Math.floor(row) + 1) * o.elements;
+      focusOn(grid, "number", pos);
+    },
     false
   );
   addKbNav(grid, ".box");

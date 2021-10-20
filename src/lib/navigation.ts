@@ -3,61 +3,6 @@ import { KbNavBehavior, DimensionStore, KbNavBehaviorParams } from "./types";
 import { getWidth } from "./utils/dom";
 
 /**
- * Navigation behavior map
- *
- * @type {Record<string, KbNavBehavior>}
- */
-const navBehaviorMap: Record<string, KbNavBehavior> = {};
-
-/**
- * Adds behavior `f` for key(s) `k`, and "stacks" behaviors if `s` is set to
- * `true`
- *
- * @param {(string | KeyCombo)[]} k key(s) to bind the behavior to
- * @param {KbNavBehavior} f behavior
- * @param {boolean} s whether to "stack" behaviors on top of each other
- */
-export const addKbNavBehavior = (
-  k: (string | KeyCombo)[],
-  f: KbNavBehavior,
-  s: boolean
-) => {
-  k.map((item) => {
-    let key: string = "";
-
-    if (item instanceof KeyCombo) {
-      // it is a key combo (`KeyCombo`)
-      ({ combo: key } = item);
-    } else {
-      // it is a key name as a plain string
-      key = item.toLowerCase();
-    }
-
-    if (navBehaviorMap[key]) {
-      // behavior for `key` already exists
-
-      if (s) {
-        // we've been told to stack the behaviors, so stack them in the order in
-        // which they were defined
-
-        const prevBehavior = navBehaviorMap[key];
-
-        navBehaviorMap[key] = (o) => {
-          prevBehavior(o);
-          f(o);
-        };
-      } else {
-        throw new Error(
-          `behavior for key/combo "${key}" has already been defined`
-        );
-      }
-    } else {
-      navBehaviorMap[key] = f;
-    }
-  });
-};
-
-/**
  * Adds keyboard navigation to `nc`
  *
  * @param {HTMLElement} nc navigation container

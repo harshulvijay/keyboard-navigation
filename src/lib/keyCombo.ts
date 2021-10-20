@@ -43,6 +43,24 @@ export class KeyCombo {
   }
 
   /**
+   * Gets key/key combo as a string
+   * 
+   * @param k key/key combo
+   * @returns {string}
+   */
+  static getKeyFromCombo(k: string | KeyCombo): string {
+    if (k instanceof KeyCombo) {
+      // it is a key combo (`KeyCombo`)
+      const { combo } = k;
+
+      return combo;
+    } else {
+      // it is a key name as a plain string
+      return k.toLowerCase();
+    }
+  }
+
+  /**
    * Generates key combo from `e`
    *
    * @param {KeyboardEvent} e keyboard event

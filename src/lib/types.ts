@@ -1,3 +1,10 @@
+import { KeyCombo } from "./keyCombo";
+
+/**
+ * Options used when adding a new behavior
+ */
+export interface AddBehaviorOptions<T> extends KbNavBehaviorItem<T> {}
+
 /**
  * Object for storing dimensions of different entities
  */
@@ -8,6 +15,11 @@ export interface DimensionStore {
   container: {
     width: number;
   };
+}
+
+export interface KbNavBehaviorItem<T = HTMLElement> {
+  behavior: (o: KbNavBehaviorParams<T>) => void;
+  stack: boolean;
 }
 
 /**
@@ -26,3 +38,7 @@ export interface KbNavBehaviorParams<T = HTMLElement> {
 }
 
 export type KbNavBehavior<T = HTMLElement> = (o: KbNavBehaviorParams<T>) => void;
+
+export type Keys = (string | KeyCombo)[];
+
+export type ShortcutMap<T> = Record<string, KbNavBehaviorItem<T>>;

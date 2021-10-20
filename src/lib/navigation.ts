@@ -1,70 +1,21 @@
 import { KeyCombo } from "./keyCombo";
-import { KbNavBehavior, DimensionStore, KbNavBehaviorParams } from "./types";
+import { KeyMap } from "./keyMap";
+import { DimensionStore, KbNavBehaviorParams } from "./types";
 import { getWidth } from "./utils/dom";
-
-/**
- * Navigation behavior map
- *
- * @type {Record<string, KbNavBehavior>}
- */
-const navBehaviorMap: Record<string, KbNavBehavior> = {};
-
-/**
- * Adds behavior `f` for key(s) `k`, and "stacks" behaviors if `s` is set to
- * `true`
- *
- * @param {(string | KeyCombo)[]} k key(s) to bind the behavior to
- * @param {KbNavBehavior} f behavior
- * @param {boolean} s whether to "stack" behaviors on top of each other
- */
-export const addKbNavBehavior = (
-  k: (string | KeyCombo)[],
-  f: KbNavBehavior,
-  s: boolean
-) => {
-  k.map((item) => {
-    let key: string = "";
-
-    if (item instanceof KeyCombo) {
-      // it is a key combo (`KeyCombo`)
-      ({ combo: key } = item);
-    } else {
-      // it is a key name as a plain string
-      key = item.toLowerCase();
-    }
-
-    if (navBehaviorMap[key]) {
-      // behavior for `key` already exists
-
-      if (s) {
-        // we've been told to stack the behaviors, so stack them in the order in
-        // which they were defined
-
-        const prevBehavior = navBehaviorMap[key];
-
-        navBehaviorMap[key] = (o) => {
-          prevBehavior(o);
-          f(o);
-        };
-      } else {
-        throw new Error(
-          `behavior for key/combo "${key}" has already been defined`
-        );
-      }
-    } else {
-      navBehaviorMap[key] = f;
-    }
-  });
-};
 
 /**
  * Adds keyboard navigation to `nc`
  *
- * @param {HTMLElement} nc navigation container
+ * @param {KeyMap<T extends HTMLElement>} m key map to use
+ * @param {T extends HTMLElement} nc navigation container
  * @param {string} s selector that can select any direct child of `nc`
  */
-export const addKbNav = (nc: HTMLElement, s: string) => {
-  const generalElement = document.querySelector(s) as HTMLElement | undefined;
+export const addKbNav = <T extends HTMLElement>(
+  m: KeyMap<T>,
+  nc: T,
+  s: string
+) => {
+  const generalElement = document.querySelector(s) as T | undefined;
 
   // keyboard navigation can only be added if `nc` has children
   if (generalElement) {
@@ -95,25 +46,32 @@ export const addKbNav = (nc: HTMLElement, s: string) => {
         // prepare for execution of the defined behavior
 
         const { target } = e;
-        const targetEl = target as HTMLElement;
+        const targetEl: T | null = target as T | null;
 
-        const behavior = navBehaviorMap[key.toLowerCase()];
-        const params: KbNavBehaviorParams = {
-          elements: Math.floor(
-            dimensions.container.width / dimensions.children.width
-          ),
-          target: {
-            dataset: targetEl.dataset,
-            element: targetEl,
-            position: parseInt(targetEl.dataset.number || "-1", 10),
-          },
-        };
+        const behaviorMeta = m.map[key.toLowerCase()];
 
-        // execute the behavior
-        if (behavior) {
-          behavior.bind(undefined, params).call(undefined);
-          // stop the default behavior of the key
-          e.preventDefault();
+        // proceed further if the target element and behavior data for the
+        // key exist
+        if (targetEl && behaviorMeta) {
+          const { behavior } = behaviorMeta;
+
+          const params: KbNavBehaviorParams<T> = {
+            elements: Math.floor(
+              dimensions.container.width / dimensions.children.width
+            ),
+            target: {
+              dataset: targetEl.dataset,
+              element: targetEl,
+              position: parseInt(targetEl.dataset.number || "-1", 10),
+            },
+          };
+
+          // execute the behavior
+          if (behavior) {
+            behavior.bind(undefined, params).call(undefined);
+            // stop the default behavior of the key
+            e.preventDefault();
+          }
         }
       }
     };

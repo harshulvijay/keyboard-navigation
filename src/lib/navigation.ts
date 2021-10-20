@@ -1,15 +1,21 @@
 import { KeyCombo } from "./keyCombo";
-import { KbNavBehavior, DimensionStore, KbNavBehaviorParams } from "./types";
+import { KeyMap } from "./keyMap";
+import { DimensionStore, KbNavBehaviorParams } from "./types";
 import { getWidth } from "./utils/dom";
 
 /**
  * Adds keyboard navigation to `nc`
  *
- * @param {HTMLElement} nc navigation container
+ * @param {KeyMap<T extends HTMLElement>} m key map to use
+ * @param {T extends HTMLElement} nc navigation container
  * @param {string} s selector that can select any direct child of `nc`
  */
-export const addKbNav = (nc: HTMLElement, s: string) => {
-  const generalElement = document.querySelector(s) as HTMLElement | undefined;
+export const addKbNav = <T extends HTMLElement>(
+  m: KeyMap<T>,
+  nc: T,
+  s: string
+) => {
+  const generalElement = document.querySelector(s) as T | undefined;
 
   // keyboard navigation can only be added if `nc` has children
   if (generalElement) {
@@ -40,25 +46,32 @@ export const addKbNav = (nc: HTMLElement, s: string) => {
         // prepare for execution of the defined behavior
 
         const { target } = e;
-        const targetEl = target as HTMLElement;
+        const targetEl: T | null = target as T | null;
 
-        const behavior = navBehaviorMap[key.toLowerCase()];
-        const params: KbNavBehaviorParams = {
-          elements: Math.floor(
-            dimensions.container.width / dimensions.children.width
-          ),
-          target: {
-            dataset: targetEl.dataset,
-            element: targetEl,
-            position: parseInt(targetEl.dataset.number || "-1", 10),
-          },
-        };
+        const behaviorMeta = m.map[key.toLowerCase()];
 
-        // execute the behavior
-        if (behavior) {
-          behavior.bind(undefined, params).call(undefined);
-          // stop the default behavior of the key
-          e.preventDefault();
+        // proceed further if the target element and behavior data for the
+        // key exist
+        if (targetEl && behaviorMeta) {
+          const { behavior } = behaviorMeta;
+
+          const params: KbNavBehaviorParams<T> = {
+            elements: Math.floor(
+              dimensions.container.width / dimensions.children.width
+            ),
+            target: {
+              dataset: targetEl.dataset,
+              element: targetEl,
+              position: parseInt(targetEl.dataset.number || "-1", 10),
+            },
+          };
+
+          // execute the behavior
+          if (behavior) {
+            behavior.bind(undefined, params).call(undefined);
+            // stop the default behavior of the key
+            e.preventDefault();
+          }
         }
       }
     };

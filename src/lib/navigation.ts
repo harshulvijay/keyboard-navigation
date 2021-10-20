@@ -69,6 +69,8 @@ export const addKbNav = <T extends HTMLElement>(
           // execute the behavior
           if (behavior) {
             behavior.bind(undefined, params).call(undefined);
+            // prevent the event from bubbling
+            e.cancelBubble = true;
             // stop the default behavior of the key
             e.preventDefault();
           }

@@ -85,6 +85,13 @@ const init = <T extends HTMLElement = HTMLDivElement>(root: T) => {
     },
     stack: false,
   });
+  keymap1.attachBehavior([new KeyCombo("control", "s")], {
+    behavior: () => {
+      console.log("ctrl+s pressed; not preventing default behavior");
+    },
+    stack: false,
+    preventsDefault: false,
+  });
 
   keymap2.copy(keymap1);
   keymap2.detachBehavior(["`"]);

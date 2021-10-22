@@ -53,7 +53,7 @@ export const addKbNav = <T extends HTMLElement>(
         // proceed further if the target element and behavior data for the
         // key exist
         if (targetEl && behaviorMeta) {
-          const { behavior } = behaviorMeta;
+          const { behavior, preventsDefault: pd } = behaviorMeta;
 
           const params: KbNavBehaviorParams<T> = {
             elements: Math.floor(
@@ -71,8 +71,9 @@ export const addKbNav = <T extends HTMLElement>(
             behavior.bind(undefined, params).call(undefined);
             // prevent the event from bubbling
             e.cancelBubble = true;
-            // stop the default behavior of the key
-            e.preventDefault();
+            // stop the default behavior of the key if `preventsDefault` is
+            // set to `true`, or is `undefined`
+            (pd === undefined || pd) && e.preventDefault();
           }
         }
       }

@@ -19,6 +19,13 @@ export interface DimensionStore {
 
 export interface KbNavBehaviorItem<T = HTMLElement> {
   behavior: (o: KbNavBehaviorParams<T>) => void;
+  /**
+   * Determines whether this key/key combo prevents the default browser
+   * behavior or not
+   *
+   * If not set, default browser behavior will be prevented.
+   */
+  preventsDefault?: boolean;
   stack: boolean;
 }
 

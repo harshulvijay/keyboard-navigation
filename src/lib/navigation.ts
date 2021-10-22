@@ -28,8 +28,7 @@ export const addKbNav = <T extends HTMLElement>(
       },
     };
 
-    // reset dimensions if window is resized
-    window.onresize = () => {
+    const updateDimensions = () => {
       dimensions.children = {
         width: getWidth(generalElement),
       };
@@ -37,6 +36,18 @@ export const addKbNav = <T extends HTMLElement>(
         width: getWidth(nc),
       };
     };
+
+    // options for `ResizeObserver`s
+    const roOptions: ResizeObserverOptions = {
+      box: "device-pixel-content-box",
+    };
+
+    // reset dimensions if document's body/element resizes
+    // we are observing the document's body instead of using `window.onresize`
+    // since it will change if the window resizes
+    const ro = new ResizeObserver(updateDimensions);
+    ro.observe(document.body, roOptions);
+    ro.observe(nc, roOptions);
 
     nc.onkeydown = (e) => {
       const key = KeyCombo.getKeyCombo(e);

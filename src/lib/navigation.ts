@@ -70,6 +70,7 @@ export const addKbNav = <T extends HTMLElement>(
             elements: Math.floor(
               dimensions.container.width / dimensions.children.width
             ),
+            event: e,
             target: {
               dataset: targetEl.dataset,
               element: targetEl,

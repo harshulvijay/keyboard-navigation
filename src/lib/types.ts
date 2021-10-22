@@ -37,6 +37,12 @@ export interface KbNavBehaviorParams<T = HTMLElement> {
    * Number of elements in a single "row" (as seen on a browser)
    */
   elements: number;
+
+  /**
+   * Keyboard event
+   */
+  event: KeyboardEvent;
+
   target: {
     dataset: DOMStringMap;
     element: T;

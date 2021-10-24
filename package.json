@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:lib": "tsm scripts/build.ts && pnpm build:typedefs",
+    "build:typedefs": "tsc --noEmit false --emitDeclarationOnly --declaration --outDir dist/typings",
     "serve": "vite preview"
   },
   "devDependencies": {

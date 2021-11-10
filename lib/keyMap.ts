@@ -17,20 +17,20 @@ export class KeyMap<T = HTMLElement> {
   /**
    * Constructor
    *
-   * @param {ShortcutMap<T>} m map to use initially
+   * @param {ShortcutMap<T>} keymap map to use initially
    */
-  constructor(m?: ShortcutMap<T>) {
-    this.map = m ?? {};
+  constructor(keymap?: ShortcutMap<T>) {
+    this.map = keymap ?? {};
   }
 
   /**
    * Converts objects of type `AddBehaviorOptions` to type `KbNavBehaviorItem`
    *
-   * @param {AddBehaviorOptions<T>} p object to use to extract properties
+   * @param {AddBehaviorOptions<T>} options object to use to extract properties
    * @returns {KbNavBehaviorItem<T>}
    */
-  private extractKNBItem(p: AddBehaviorOptions<T>): KbNavBehaviorItem<T> {
-    const c: AddBehaviorOptions<T> = { ...p };
+  private extractKNBItem(options: AddBehaviorOptions<T>): KbNavBehaviorItem<T> {
+    const c: AddBehaviorOptions<T> = { ...options };
     // remove the extra properties from `p` to make it fit the type
     // `KbNavBehaviorItem`
     // there are none... as of now
@@ -40,26 +40,26 @@ export class KeyMap<T = HTMLElement> {
   /**
    * Attaches behavior (`p.behavior`) to each key in `k`
    *
-   * @param {Keys} k keys to attach the defined behavior to
-   * @param {AddBehaviorOptions<T>} p options
+   * @param {Keys} keys keys to attach the defined behavior to
+   * @param {AddBehaviorOptions<T>} options options
    */
-  attachBehavior(k: Keys, p: AddBehaviorOptions<T>) {
-    k.map((item) => {
+  attachBehavior(keys: Keys, options: AddBehaviorOptions<T>) {
+    keys.map((item) => {
       const key: string = KeyCombo.getKeyFromCombo(item);
 
       if (this.map[key]) {
         // behavior for `key` already exists
 
-        if (p.stack) {
+        if (options.stack) {
           // we've been told to stack the behaviors, so stack them in the order in
           // which they were defined
 
           const { behavior: prevBehavior } = this.map[key];
 
-          this.map[key] = this.extractKNBItem(p);
+          this.map[key] = this.extractKNBItem(options);
           this.map[key].behavior = (o) => {
             prevBehavior(o);
-            p.behavior(o);
+            options.behavior(o);
           };
         } else {
           throw new Error(
@@ -67,7 +67,7 @@ export class KeyMap<T = HTMLElement> {
           );
         }
       } else {
-        this.map[key] = this.extractKNBItem(p);
+        this.map[key] = this.extractKNBItem(options);
       }
     });
   }
@@ -75,22 +75,23 @@ export class KeyMap<T = HTMLElement> {
   /**
    * Merges `m` into the current key map
    *
-   * @param {ShortcutMap<T>} m map to copy
+   * @param {ShortcutMap<T>} keymap map to copy
    */
-  copy(m?: KeyMap<T> | ShortcutMap<T>) {
+  copy(keymap?: KeyMap<T> | ShortcutMap<T>) {
     // if we're given an object belonging to class `KeyMap`,
     // extract the map from the class
-    let s: ShortcutMap<T> | undefined = m instanceof KeyMap ? m.map : m;
-    s && (this.map = { ...this.map, ...s });
+    let shortcutMap: ShortcutMap<T> | undefined =
+      keymap instanceof KeyMap ? keymap.map : keymap;
+    shortcutMap && (this.map = { ...this.map, ...shortcutMap });
   }
 
   /**
    * Detaches (deletes) behavior for each key/key combo in `k`
    *
-   * @param {Keys} k keys to detach the behaviors for
+   * @param {Keys} keys keys to detach the behaviors for
    */
-  detachBehavior(k: Keys) {
-    k.map((item) => {
+  detachBehavior(keys: Keys) {
+    keys.map((item) => {
       const key: string = KeyCombo.getKeyFromCombo(item);
       delete this.map[key];
     });
@@ -101,9 +102,9 @@ export class KeyMap<T = HTMLElement> {
    *
    * It basically sets the current map to a live reference of `m`
    *
-   * @param {ShortcutMap<T>} m map to mirror
+   * @param {ShortcutMap<T>} keymap map to mirror
    */
-  mirror(m?: ShortcutMap<T>) {
-    m && (this.map = m);
+  mirror(keymap?: ShortcutMap<T>) {
+    keymap && (this.map = keymap);
   }
 }

@@ -7,12 +7,18 @@ import { FocusableElement } from "../focusable";
 /**
  * Focuses on the `[data-<f>=<i>]` element in the children of `nc`
  *
- * @param {HTMLElement} nc navigation container
- * @param {string} f field of the dataset to match against
- * @param {number} i index of the element to focus on
+ * @param {HTMLElement} navigationContainer navigation container
+ * @param {string} field field of the dataset to match against
+ * @param {number} index index of the element to focus on
  */
-export const focusOn = (nc: HTMLElement, f: string, i: number) => {
-  const element = nc.querySelector(`[data-${f}="${i}"]`) as FocusableElement;
+export const focusOn = (
+  navigationContainer: HTMLElement,
+  field: string,
+  index: number
+) => {
+  const element = navigationContainer.querySelector(
+    `[data-${field}="${index}"]`
+  ) as FocusableElement;
 
   element?.focus();
 };

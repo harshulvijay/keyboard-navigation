@@ -20,43 +20,43 @@ export class KeyCombo {
   /**
    * Constructor
    *
-   * @param {string[]} k keys involved in the key combo
+   * @param {string[]} keys keys involved in the key combo
    */
-  constructor(...k: string[]) {
+  constructor(...keys: string[]) {
     // convert each key name to lowercase
-    this.keys = k.map((v) => v.toLowerCase());
+    this.keys = keys.map((key) => key.toLowerCase());
     this.combo = KeyCombo.generateKeyCombo(`+`, ...this.keys);
   }
 
   /**
    * Generates combo string of `k` separated by `d`
    *
-   * @param {string} d delimiter
-   * @param {string[]} k array of key names
+   * @param {string} delim delimiter
+   * @param {string[]} keys array of key names
    * @returns {string} key combo
    */
-  static generateKeyCombo(d: string, ...k: string[]): string {
-    return k
+  static generateKeyCombo(delim: string, ...keys: string[]): string {
+    return keys
       .filter((key) => key)
-      .join(d)
+      .join(delim)
       .toLowerCase();
   }
 
   /**
    * Gets key/key combo as a string
-   * 
-   * @param k key/key combo
+   *
+   * @param keys key/key combo
    * @returns {string}
    */
-  static getKeyFromCombo(k: string | KeyCombo): string {
-    if (k instanceof KeyCombo) {
+  static getKeyFromCombo(keys: string | KeyCombo): string {
+    if (keys instanceof KeyCombo) {
       // it is a key combo (`KeyCombo`)
-      const { combo } = k;
+      const { combo } = keys;
 
       return combo;
     } else {
       // it is a key name as a plain string
-      return k.toLowerCase();
+      return keys.toLowerCase();
     }
   }
 
@@ -64,11 +64,11 @@ export class KeyCombo {
    * Generates key combo from `e`
    *
    * @param {KeyboardEvent} e keyboard event
-   * @param {string} d delimiter used in the key combo
+   * @param {string} delim delimiter used in the key combo
    * @returns {string | null} key combo or `null`, in case the key pressed is a
    * modifier key
    */
-  static getKeyCombo(e: KeyboardEvent, d: string = `+`): string | null {
+  static getKeyCombo(e: KeyboardEvent, delim: string = `+`): string | null {
     if (isModifierKey(e.key)) return null;
 
     // alt
@@ -80,6 +80,6 @@ export class KeyCombo {
     // shift
     const s = e.shiftKey ? ModifierKeys.SHIFT : "";
 
-    return this.generateKeyCombo(d, a, c, m, s, e.key.toLowerCase());
+    return this.generateKeyCombo(delim, a, c, m, s, e.key.toLowerCase());
   }
 }

@@ -6,16 +6,16 @@ import { getWidth } from "./utils/dom";
 /**
  * Adds keyboard navigation to `nc`
  *
- * @param {KeyMap<T extends HTMLElement>} m key map to use
- * @param {T extends HTMLElement} nc navigation container
- * @param {string} s selector that can select any direct child of `nc`
+ * @param {KeyMap<T extends HTMLElement>} keymap key map to use
+ * @param {T extends HTMLElement} navigationContainer navigation container
+ * @param {string} selector selector that can select any direct child of `nc`
  */
 export const addKbNav = <T extends HTMLElement>(
-  m: KeyMap<T>,
-  nc: T,
-  s: string
+  keymap: KeyMap<T>,
+  navigationContainer: T,
+  selector: string
 ) => {
-  const generalElement = document.querySelector(s) as T | undefined;
+  const generalElement = document.querySelector(selector) as T | undefined;
 
   // keyboard navigation can only be added if `nc` has children
   if (generalElement) {
@@ -24,7 +24,7 @@ export const addKbNav = <T extends HTMLElement>(
         width: getWidth(generalElement),
       },
       container: {
-        width: getWidth(nc),
+        width: getWidth(navigationContainer),
       },
     };
 
@@ -33,23 +33,23 @@ export const addKbNav = <T extends HTMLElement>(
         width: getWidth(generalElement),
       };
       dimensions.container = {
-        width: getWidth(nc),
+        width: getWidth(navigationContainer),
       };
     };
 
     // options for `ResizeObserver`s
-    const roOptions: ResizeObserverOptions = {
+    const resizeObserverOptions: ResizeObserverOptions = {
       box: "device-pixel-content-box",
     };
 
     // reset dimensions if document's body/element resizes
     // we are observing the document's body instead of using `window.onresize`
     // since it will change if the window resizes
-    const ro = new ResizeObserver(updateDimensions);
-    ro.observe(document.body, roOptions);
-    ro.observe(nc, roOptions);
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(document.body, resizeObserverOptions);
+    resizeObserver.observe(navigationContainer, resizeObserverOptions);
 
-    nc.onkeydown = (e) => {
+    navigationContainer.onkeydown = (e) => {
       const key = KeyCombo.getKeyCombo(e);
 
       if (key) {
@@ -59,12 +59,12 @@ export const addKbNav = <T extends HTMLElement>(
         const { target } = e;
         const targetEl: T | null = target as T | null;
 
-        const behaviorMeta = m.map[key.toLowerCase()];
+        const behaviorMeta = keymap.map[key.toLowerCase()];
 
         // proceed further if the target element and behavior data for the
         // key exist
         if (targetEl && behaviorMeta) {
-          const { behavior, preventsDefault: pd } = behaviorMeta;
+          const { behavior, preventsDefault } = behaviorMeta;
 
           const params: KbNavBehaviorParams<T> = {
             elements: Math.floor(
@@ -85,7 +85,8 @@ export const addKbNav = <T extends HTMLElement>(
             e.cancelBubble = true;
             // stop the default behavior of the key if `preventsDefault` is
             // set to `true`, or is `undefined`
-            (pd === undefined || pd) && e.preventDefault();
+            (preventsDefault === undefined || preventsDefault) &&
+              e.preventDefault();
           }
         }
       }

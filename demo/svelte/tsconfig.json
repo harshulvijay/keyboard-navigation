@@ -16,10 +16,10 @@
     "checkJs": true,
     "paths": {
       "@lib/*": [
-        "../../../lib/*"
+        "../../lib/*"
       ],
       "@wrappers/*": [
-        "../../../wrappers/*"
+        "../../wrappers/*"
       ],
     }
   },

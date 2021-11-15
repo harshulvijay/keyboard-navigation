@@ -3,11 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite web",
+    "dev:svelte": "vite svelte",
     "dev:web": "vite web",
     "build": "tsc && vite build",
     "serve": "vite preview"
   },
   "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+    "@tsconfig/svelte": "^2.0.1",
+    "sass": "^1.43.4",
+    "svelte": "^3.37.0",
+    "svelte-check": "^2.1.0",
+    "svelte-preprocess": "^4.7.2",
+    "tslib": "^2.2.0",
     "typescript": "^4.3.2",
     "vite": "^2.6.4"
   }

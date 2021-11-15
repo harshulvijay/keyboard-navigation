@@ -1,6 +1,9 @@
 {
   "name": "roving-tab-index",
   "version": "0.0.0",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build:lib": "tsup && copyfiles package.json dist"
   },

@@ -2,8 +2,6 @@
   "name": "roving-tab-index",
   "version": "0.0.0",
   "scripts": {
-    "build:lib": "tsm scripts/build.ts && pnpm build:typedefs",
-    "build:typedefs": "tsc --noEmit false --emitDeclarationOnly --declaration --outDir dist/typings"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",

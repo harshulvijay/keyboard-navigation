@@ -2,6 +2,7 @@
   "name": "roving-tab-index",
   "version": "0.0.0",
   "scripts": {
+    "build:lib": "tsup && copyfiles package.json dist"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",

@@ -1,5 +1,5 @@
 {
-  "name": "manual",
+  "name": "demo",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite web",

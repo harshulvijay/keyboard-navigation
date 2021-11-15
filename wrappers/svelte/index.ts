@@ -1,6 +1,9 @@
 import { KeyMap } from "../../lib/keyMap";
 import { addKbNav } from "../../lib/navigation";
 
+// export everything from the general codebase
+export * from "../../lib";
+
 export interface ActionOptions {
   /**
    * @param {KeyMap<T extends HTMLElement>} keymap key map to use

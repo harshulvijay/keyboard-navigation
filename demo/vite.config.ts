@@ -10,7 +10,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@lib": resolve(__dirname, "../../lib"),
+      "@lib": resolve(__dirname, "../lib"),
     },
   },
 });

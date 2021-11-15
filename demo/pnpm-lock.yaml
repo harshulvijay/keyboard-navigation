@@ -3,6 +3,9 @@ lockfileVersion: 5.3
 specifiers:
   '@sveltejs/vite-plugin-svelte': ^1.0.0-next.11
   '@tsconfig/svelte': ^2.0.1
+  '@types/glob': ^7.2.0
+  glob: ^7.2.0
+  roving-tab-index: file:..\dist\roving-tab-index-0.0.0.tgz
   sass: ^1.43.4
   svelte: ^3.37.0
   svelte-check: ^2.1.0
@@ -14,6 +17,9 @@ specifiers:
 devDependencies:
   '@sveltejs/vite-plugin-svelte': 1.0.0-next.30_svelte@3.44.1+vite@2.6.14
   '@tsconfig/svelte': 2.0.1
+  '@types/glob': 7.2.0
+  glob: 7.2.0
+  roving-tab-index: file:../dist/roving-tab-index-0.0.0.tgz
   sass: 1.43.4
   svelte: 3.44.1
   svelte-check: 2.2.8_sass@1.43.4+svelte@3.44.1
@@ -78,6 +84,17 @@ packages:
 
   /@tsconfig/svelte/2.0.1:
     resolution: {integrity: sha512-aqkICXbM1oX5FfgZd2qSSAGdyo/NRxjWCamxoyi3T8iVQnzGge19HhDYzZ6NrVOW7bhcWNSq9XexWFtMzbB24A==}
+    dev: true
+
+  /@types/glob/7.2.0:
+    resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
+    dependencies:
+      '@types/minimatch': 3.0.5
+      '@types/node': 16.11.7
+    dev: true
+
+  /@types/minimatch/3.0.5:
+    resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: true
 
   /@types/node/16.11.7:
@@ -846,4 +863,10 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
+    dev: true
+
+  file:../dist/roving-tab-index-0.0.0.tgz:
+    resolution: {integrity: sha512-4CcGDkgU5/u2PN4Jewe7B5DC+IEBIsznV/QZ6wGvvbLI49Na3p6X5U50+jpsROFbbQTgGZUAEUT5AjTcrUeAiA==, tarball: file:../dist/roving-tab-index-0.0.0.tgz}
+    name: roving-tab-index
+    version: 0.0.0
     dev: true

@@ -1,22 +1,12 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@types/glob': ^7.2.0
   copyfiles: ^2.4.1
-  esbuild: ^0.13.8
-  glob: ^7.2.0
-  kleur: ^4.1.4
-  tsm: ^2.1.2
   tsup: ^5.7.0
   typescript: ^4.3.2
 
 devDependencies:
-  '@types/glob': 7.2.0
   copyfiles: 2.4.1
-  esbuild: 0.13.8
-  glob: 7.2.0
-  kleur: 4.1.4
-  tsm: 2.1.2
   tsup: 5.7.0_typescript@4.4.3
   typescript: 4.4.3
 
@@ -41,21 +31,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
-    dev: true
-
-  /@types/glob/7.2.0:
-    resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
-    dependencies:
-      '@types/minimatch': 3.0.5
-      '@types/node': 16.11.3
-    dev: true
-
-  /@types/minimatch/3.0.5:
-    resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
-    dev: true
-
-  /@types/node/16.11.3:
-    resolution: {integrity: sha512-aIYL9Eemcecs1y77XzFGiSc+FdfN58k4J23UEe6+hynf4Wd9g4DzQPwIKL080vSMuubFqy2hWwOzCtJdc6vFKw==}
     dev: true
 
   /ansi-regex/5.0.1:
@@ -573,11 +548,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /kleur/4.1.4:
-    resolution: {integrity: sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==}
-    engines: {node: '>=6'}
-    dev: true
-
   /lilconfig/2.0.4:
     resolution: {integrity: sha512-bfTIN7lEsiooCocSISTWXkiWJkRqtL9wYtYy+8EK3Y41qh3mpwPU0ycTOgjdY9ErwXCc8QyrQp82bdL0Xkm9yA==}
     engines: {node: '>=10'}
@@ -891,14 +861,6 @@ packages:
 
   /ts-interface-checker/0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
-    dev: true
-
-  /tsm/2.1.2:
-    resolution: {integrity: sha512-1jF8LNTRcPsw15ajZK2ra3RA2PSCdVGvJzF/Q1TCsu1tH2dY59HgNWxhttN2s1mfJUFoattjf9QZ410u5bgtJQ==}
-    engines: {node: '>=12'}
-    hasBin: true
-    dependencies:
-      esbuild: 0.13.8
     dev: true
 
   /tsup/5.7.0_typescript@4.4.3:

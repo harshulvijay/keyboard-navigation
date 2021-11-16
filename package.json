@@ -1,5 +1,5 @@
 {
-  "name": "roving-tab-index",
+  "name": "keyboard-navigation",
   "version": "0.0.0",
   "main": "lib/index.js",
   "module": "lib/index.js",

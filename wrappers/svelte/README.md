@@ -168,4 +168,4 @@ Feel free to [open an issue](https://github.com/harshulvijay/keyboard-navigation
 
 ## License
 
-[License](LICENSE.md)
+[License](../../LICENSE.md)

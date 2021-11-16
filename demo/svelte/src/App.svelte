@@ -1,6 +1,6 @@
 <script lang="ts">
   import { focusOn } from "@utils/dom";
-  import { keyboardNavigation, KeyMap } from "mylib/wrappers/svelte";
+  import { keyboardNavigation, KeyCombo, KeyMap } from "mylib/wrappers/svelte";
 
   // the element on which the action will be listening for key presses
   let navigationContainer: HTMLElement;
@@ -15,7 +15,7 @@
     // this function will execute when either "w" or the "arrowup" key is
     // pressed
     behavior: (o) => {
-      // `o` contains some properties that may be useful, for example, 
+      // `o` contains some properties that may be useful, for example,
       // `position` if the element that's being focused on has a `data-number`
       // property
       const next = o.target.position - o.elements;
@@ -43,6 +43,59 @@
       focusOn(navigationContainer, "number", next);
     },
     stack: false,
+  });
+  keymap.attachBehavior(["home"], {
+    behavior: () => focusOn(navigationContainer, "number", 1),
+    stack: false,
+  });
+  keymap.attachBehavior([new KeyCombo("shift", "home")], {
+    // this function will execute when "shift" *and* the "home" key are
+    // pressed at the same time
+    behavior: (o) => {
+      let row = o.target.position / o.elements;
+      if (row % 1 === 0) {
+        row -= 1;
+      }
+
+      const pos = Math.floor(row) * o.elements + 1;
+      focusOn(navigationContainer, "number", pos);
+    },
+    stack: false,
+  });
+  keymap.attachBehavior(["end"], {
+    behavior: () =>
+      focusOn(
+        navigationContainer,
+        "number",
+        navigationContainer.children.length
+      ),
+    stack: false,
+  });
+  keymap.attachBehavior([new KeyCombo("shift", "end")], {
+    behavior: (o) => {
+      let row = o.target.position / o.elements;
+      if (row % 1 === 0) {
+        row -= 1;
+      }
+
+      const pos = (Math.floor(row) + 1) * o.elements;
+      focusOn(navigationContainer, "number", pos);
+    },
+    stack: false,
+  });
+  keymap.attachBehavior(["`"], {
+    behavior: () => {
+      const pos = parseInt(prompt("position of the block") || "");
+      pos && focusOn(navigationContainer, "number", pos);
+    },
+    stack: false,
+  });
+  keymap.attachBehavior([new KeyCombo("control", "s")], {
+    behavior: () => {
+      console.log("ctrl+s pressed; not preventing default behavior");
+    },
+    stack: false,
+    preventsDefault: false,
   });
 </script>
 

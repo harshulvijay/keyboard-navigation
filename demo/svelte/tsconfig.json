@@ -15,12 +15,6 @@
     "allowJs": true,
     "checkJs": true,
     "paths": {
-      "@lib/*": [
-        "../../lib/*"
-      ],
-      "@wrappers/*": [
-        "../../wrappers/*"
-      ],
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]

@@ -10,6 +10,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      "@utils": resolve(__dirname, "./utils"),
     },
   },
 });

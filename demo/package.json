@@ -1,8 +1,7 @@
 {
-  "name": "demo",
+  "name": "manual",
   "version": "0.0.0",
   "scripts": {
-    "lib:install": "cd .. && pnpm build:lib && cd dist && pnpm pack && cd ../demo && node lib.install.mjs",
     "dev": "vite web",
     "dev:svelte": "vite svelte",
     "dev:web": "vite web",
@@ -12,9 +11,6 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
     "@tsconfig/svelte": "^2.0.1",
-    "@types/glob": "^7.2.0",
-    "glob": "^7.2.0",
-    "mylib": "file:..\\dist\\roving-tab-index-0.0.0.tgz",
     "sass": "^1.43.4",
     "svelte": "^3.37.0",
     "svelte-check": "^2.1.0",

@@ -1,7 +1,8 @@
 import "./style.scss";
 import { createBoxGrid } from "./grid";
-import { addKbNav, KeyCombo, KeyMap } from "mylib";
-import { focusOn } from "@utils/dom";
+import { addKbNav, KeyCombo } from "@lib/index";
+import { focusOn } from "@lib/utils/dom";
+import { KeyMap } from "@lib/keyMap";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 

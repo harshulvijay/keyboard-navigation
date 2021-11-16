@@ -15,8 +15,11 @@
     "allowJs": true,
     "checkJs": true,
     "paths": {
-      "@utils/*": [
-        "../utils/*"
+      "@lib/*": [
+        "../../lib/*"
+      ],
+      "@wrappers/*": [
+        "../../wrappers/*"
       ],
     }
   },

@@ -10,7 +10,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@utils": resolve(__dirname, "./utils"),
+      "@lib": resolve(__dirname, "../lib"),
+      "@wrappers": resolve(__dirname, "../wrappers"),
     },
   },
 });

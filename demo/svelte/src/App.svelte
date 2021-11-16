@@ -1,23 +1,14 @@
 <script lang="ts">
-  import { focusOn } from "@utils/dom";
-  import { keyboardNavigation, KeyCombo, KeyMap } from "mylib/wrappers/svelte";
+  import { KeyMap } from "@lib/keyMap";
+  import { focusOn } from "@lib/utils/dom";
+  import { keyboardNavigation } from "@wrappers/svelte/keyboardNavigationAction";
 
-  // the element on which the action will be listening for key presses
   let navigationContainer: HTMLElement;
-  // create an array of numbers from 0 to 99
   const array = [...Array(100).keys()];
-
-  // create a keymap
   const keymap = new KeyMap();
 
-  // attach a new behavior
   keymap.attachBehavior(["arrowup", "w"], {
-    // this function will execute when either "w" or the "arrowup" key is
-    // pressed
     behavior: (o) => {
-      // `o` contains some properties that may be useful, for example,
-      // `position` if the element that's being focused on has a `data-number`
-      // property
       const next = o.target.position - o.elements;
       focusOn(navigationContainer, "number", next);
     },
@@ -44,89 +35,27 @@
     },
     stack: false,
   });
-  keymap.attachBehavior(["home"], {
-    behavior: () => focusOn(navigationContainer, "number", 1),
-    stack: false,
-  });
-  keymap.attachBehavior([new KeyCombo("shift", "home")], {
-    // this function will execute when "shift" *and* the "home" key are
-    // pressed at the same time
-    behavior: (o) => {
-      let row = o.target.position / o.elements;
-      if (row % 1 === 0) {
-        row -= 1;
-      }
-
-      const pos = Math.floor(row) * o.elements + 1;
-      focusOn(navigationContainer, "number", pos);
-    },
-    stack: false,
-  });
-  keymap.attachBehavior(["end"], {
-    behavior: () =>
-      focusOn(
-        navigationContainer,
-        "number",
-        navigationContainer.children.length
-      ),
-    stack: false,
-  });
-  keymap.attachBehavior([new KeyCombo("shift", "end")], {
-    behavior: (o) => {
-      let row = o.target.position / o.elements;
-      if (row % 1 === 0) {
-        row -= 1;
-      }
-
-      const pos = (Math.floor(row) + 1) * o.elements;
-      focusOn(navigationContainer, "number", pos);
-    },
-    stack: false,
-  });
-  keymap.attachBehavior(["`"], {
-    behavior: () => {
-      const pos = parseInt(prompt("position of the block") || "");
-      pos && focusOn(navigationContainer, "number", pos);
-    },
-    stack: false,
-  });
-  keymap.attachBehavior([new KeyCombo("control", "s")], {
-    behavior: () => {
-      console.log("ctrl+s pressed; not preventing default behavior");
-    },
-    stack: false,
-    preventsDefault: false,
-  });
 </script>
 
 <main>
-  <!-- bind this `div` to the `navigationContainer` variable -->
-  <!-- the `keyboardNavigation` action will listen for key presses on this 
-    element -->
   <div
     bind:this={navigationContainer}
     use:keyboardNavigation={{
-      // pass the keymap that we defined earlier
       keymap,
-      // will work for all elements that have a class `box`
-      // note: currently, all `.box`es need to have the same width, as it is,
-      // as of now, a limitation of the svelte action
       selector: ".box",
     }}
     class="grid"
   >
     {#each array as item}
-      <div class="box" tabindex="0" data-number={item + 1}>{item + 1}</div>
+      <div class="box" tabindex="0" data-number={item}>{item}</div>
     {/each}
   </div>
 </main>
 
 <style lang="scss">
-  // styling
-
   $box-color: #f44336;
   $box-focused-outline-color: #2196f3;
-
+  
   :root {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;

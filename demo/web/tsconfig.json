@@ -17,9 +17,9 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "paths": {
-      "@lib/*": [
-        "../../../lib/*"
-      ]
+      "@utils/*": [
+        "../utils/*"
+      ],
     }
   },
   "include": [

@@ -46,7 +46,7 @@
     class="grid"
   >
     {#each array as item}
-      <div class="box" tabindex="0" data-number={item}>{item}</div>
+      <div class="box" tabindex="0" data-number={item + 1}>{item + 1}</div>
     {/each}
   </div>
 </main>

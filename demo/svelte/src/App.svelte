@@ -1,6 +1,6 @@
 <script lang="ts">
   import { focusOn } from "@utils/dom";
-  import { keyboardNavigation, KeyMap } from "roving-tab-index/wrappers/svelte";
+  import { keyboardNavigation, KeyMap } from "mylib/wrappers/svelte";
 
   let navigationContainer: HTMLElement;
   const array = [...Array(100).keys()];

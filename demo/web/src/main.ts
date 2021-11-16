@@ -1,6 +1,6 @@
 import "./style.scss";
 import { createBoxGrid } from "./grid";
-import { addKbNav, KeyCombo, KeyMap } from "roving-tab-index";
+import { addKbNav, KeyCombo, KeyMap } from "mylib";
 import { focusOn } from "@utils/dom";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;

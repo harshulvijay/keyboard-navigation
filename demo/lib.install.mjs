@@ -1,6 +1,5 @@
 import glob from "glob";
 import { exec } from "child_process";
-import { basename } from "path";
 
 glob(`../dist/*.tgz`, undefined, async (err, files) => {
   if (err) {
@@ -8,16 +7,7 @@ glob(`../dist/*.tgz`, undefined, async (err, files) => {
   }
 
   files.map(async (file) => {
-    const filename = basename(file);
-    const partialPackageName = filename.split(`.`, 1).join(``);
-    const packageName = partialPackageName
-      .split(`-`)
-      .reverse()
-      .slice(1)
-      .reverse()
-      .join(`-`);
-
-    const process1 = exec(`pnpm remove ${packageName}`);
+    const process1 = exec(`pnpm remove mylib`);
 
     process1.stdout.pipe(process.stdout);
     process1.stderr.pipe(process.stderr);
@@ -26,7 +16,7 @@ glob(`../dist/*.tgz`, undefined, async (err, files) => {
       console.log(`child process #1 exited with code ${code}`);
     });
 
-    const process2 = exec(`pnpm i -D ${file}`);
+    const process2 = exec(`pnpm i -D mylib@${file}`);
 
     process2.stdout.pipe(process.stdout);
     process2.stderr.pipe(process.stderr);

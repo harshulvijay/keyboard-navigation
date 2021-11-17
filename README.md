@@ -4,7 +4,7 @@ A lightweight library to add keyboard navigation to your project.
 
 ## Features
 
-- 📦 Tiny: [SIZE] min+gzip
+- 📦 Tiny: 1.4KB min+gzip
 - ⚛️ Reactive: Change key combinations on-the-fly
 - 😀 Simple: Easy-to-use API
 - 🧙‍♂️ Framework-agnostic: Doesn't depend on any framework, but has [wrappers](#wrappers) for some frameworks

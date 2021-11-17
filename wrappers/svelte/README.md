@@ -4,7 +4,7 @@ A lightweight Svelte action to add keyboard navigation to your Svelte app.
 
 ## Features
 
-- 📦 Tiny: [SIZE] min+gzip
+- 📦 Tiny: 1.4KB min+gzip
 - ⚛️ Reactive: Change key combinations on-the-fly
 - 😀 Simple: Easy-to-use API
 

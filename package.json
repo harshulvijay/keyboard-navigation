@@ -5,11 +5,14 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:lib": "tsup && copyfiles package.json dist"
+    "build:lib": "tsup && copyfiles package.json dist",
+    "build:docs": "typedoc lib/index.ts --out docs --readme none"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",
     "tsup": "^5.7.0",
+    "typedoc": "^0.22.9",
+    "typedoc-plugin-markdown": "^3.11.6",
     "typescript": "^4.3.2"
   }
 }

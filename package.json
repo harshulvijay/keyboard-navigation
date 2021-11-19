@@ -5,7 +5,8 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:lib": "tsup && copyfiles package.json dist"
+    "build:lib": "tsup && copyfiles package.json dist",
+    "build:docs": "typedoc lib/index.ts --out docs --readme none"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",

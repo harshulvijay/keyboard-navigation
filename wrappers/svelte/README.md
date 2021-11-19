@@ -142,8 +142,7 @@ To use `options.target.position` in the behavior arguments, you'll have to defin
 
 ## API Reference
 
-Will be available soon.
-<!-- See the [docs](../../docs/) -->
+See the [docs](../../docs/README.md)
 
 ## Demos
 

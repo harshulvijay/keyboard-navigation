@@ -25,7 +25,7 @@ Object for storing dimensions of different entities
 
 #### Defined in
 
-[types.ts:12](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/types.ts#L12)
+[types.ts:12](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L12)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[types.ts:15](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/types.ts#L15)
+[types.ts:15](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L15)

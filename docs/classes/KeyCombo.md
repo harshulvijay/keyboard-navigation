@@ -38,7 +38,7 @@ Constructor
 
 #### Defined in
 
-[keyCombo.ts:25](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyCombo.ts#L25)
+[keyCombo.ts:25](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyCombo.ts#L25)
 
 ## Properties
 
@@ -52,7 +52,7 @@ Generated from `KeyCombo.keys`
 
 #### Defined in
 
-[keyCombo.ts:13](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyCombo.ts#L13)
+[keyCombo.ts:13](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyCombo.ts#L13)
 
 ___
 
@@ -64,7 +64,7 @@ Keys involved in the key combo
 
 #### Defined in
 
-[keyCombo.ts:18](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyCombo.ts#L18)
+[keyCombo.ts:18](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyCombo.ts#L18)
 
 ## Methods
 
@@ -89,7 +89,7 @@ key combo
 
 #### Defined in
 
-[keyCombo.ts:38](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyCombo.ts#L38)
+[keyCombo.ts:38](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyCombo.ts#L38)
 
 ___
 
@@ -115,7 +115,7 @@ modifier key
 
 #### Defined in
 
-[keyCombo.ts:71](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyCombo.ts#L71)
+[keyCombo.ts:71](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyCombo.ts#L71)
 
 ___
 
@@ -137,4 +137,4 @@ Gets key/key combo as a string
 
 #### Defined in
 
-[keyCombo.ts:51](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyCombo.ts#L51)
+[keyCombo.ts:51](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyCombo.ts#L51)

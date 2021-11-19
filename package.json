@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build:lib": "tsup && copyfiles package.json dist",
-    "build:docs": "typedoc lib/index.ts --out docs --readme none"
+    "build:docs": "typedoc lib/index.ts --out docs --readme none --excludePrivate --excludeProtected --excludeInternal"
   },
   "devDependencies": {
     "copyfiles": "^2.4.1",

@@ -28,7 +28,7 @@ Number of elements in a single "row" (as seen on a browser)
 
 #### Defined in
 
-[types.ts:39](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/types.ts#L39)
+[types.ts:39](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L39)
 
 ___
 
@@ -40,7 +40,7 @@ Keyboard event
 
 #### Defined in
 
-[types.ts:44](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/types.ts#L44)
+[types.ts:44](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L44)
 
 ___
 
@@ -58,4 +58,4 @@ ___
 
 #### Defined in
 
-[types.ts:46](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/types.ts#L46)
+[types.ts:46](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L46)

@@ -25,7 +25,6 @@ Class for generating key maps
 - [attachBehavior](KeyMap.md#attachbehavior)
 - [copy](KeyMap.md#copy)
 - [detachBehavior](KeyMap.md#detachbehavior)
-- [extractKNBItem](KeyMap.md#extractknbitem)
 - [mirror](KeyMap.md#mirror)
 
 ## Constructors
@@ -50,7 +49,7 @@ Constructor
 
 #### Defined in
 
-[keyMap.ts:22](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L22)
+[keyMap.ts:22](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L22)
 
 ## Properties
 
@@ -60,7 +59,7 @@ Constructor
 
 #### Defined in
 
-[keyMap.ts:15](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L15)
+[keyMap.ts:15](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L15)
 
 ## Methods
 
@@ -83,7 +82,7 @@ Attaches behavior (`p.behavior`) to each key in `k`
 
 #### Defined in
 
-[keyMap.ts:46](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L46)
+[keyMap.ts:46](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L46)
 
 ___
 
@@ -105,7 +104,7 @@ Merges `m` into the current key map
 
 #### Defined in
 
-[keyMap.ts:80](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L80)
+[keyMap.ts:80](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L80)
 
 ___
 
@@ -127,29 +126,7 @@ Detaches (deletes) behavior for each key/key combo in `k`
 
 #### Defined in
 
-[keyMap.ts:93](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L93)
-
-___
-
-### extractKNBItem
-
-▸ `Private` **extractKNBItem**(`options`): [`KbNavBehaviorItem`](../interfaces/KbNavBehaviorItem.md)<`T`\>
-
-Converts objects of type `AddBehaviorOptions` to type `KbNavBehaviorItem`
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | [`AddBehaviorOptions`](../interfaces/AddBehaviorOptions.md)<`T`\> | object to use to extract properties |
-
-#### Returns
-
-[`KbNavBehaviorItem`](../interfaces/KbNavBehaviorItem.md)<`T`\>
-
-#### Defined in
-
-[keyMap.ts:32](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L32)
+[keyMap.ts:93](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L93)
 
 ___
 
@@ -173,4 +150,4 @@ It basically sets the current map to a live reference of `m`
 
 #### Defined in
 
-[keyMap.ts:107](https://github.com/harshulvijay/keyboard-navigation/blob/b9c7092/lib/keyMap.ts#L107)
+[keyMap.ts:107](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L107)

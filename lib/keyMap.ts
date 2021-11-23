@@ -38,7 +38,7 @@ export class KeyMap<T = HTMLElement> {
   }
 
   /**
-   * Attaches behavior (`p.behavior`) to each key in `k`
+   * Attaches behavior (`options.behavior`) to each key in `keys`
    *
    * @param {Keys} keys keys to attach the defined behavior to
    * @param {AddBehaviorOptions<T>} options options
@@ -73,7 +73,7 @@ export class KeyMap<T = HTMLElement> {
   }
 
   /**
-   * Merges `m` into the current key map
+   * Merges `keymap` into the current key map
    *
    * @param {ShortcutMap<T>} keymap map to copy
    */
@@ -86,7 +86,7 @@ export class KeyMap<T = HTMLElement> {
   }
 
   /**
-   * Detaches (deletes) behavior for each key/key combo in `k`
+   * Detaches (deletes) behavior for each key/key combo in `keys`
    *
    * @param {Keys} keys keys to detach the behaviors for
    */
@@ -98,9 +98,9 @@ export class KeyMap<T = HTMLElement> {
   }
 
   /**
-   * Mirrors map `m`, overriding the current one
+   * Mirrors map `keymap`, overriding the current one
    *
-   * It basically sets the current map to a live reference of `m`
+   * It basically sets the current map to a live reference of `keymap`
    *
    * @param {ShortcutMap<T>} keymap map to mirror
    */

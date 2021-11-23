@@ -6,7 +6,7 @@ import { isModifierKey, ModifierKeys } from "./utils/modKeys";
  */
 export class KeyCombo {
   /**
-   * String of keys separated by a delimiter `d`
+   * String of keys separated by a delimiter `delim`
    *
    * Generated from `KeyCombo.keys`
    */
@@ -29,7 +29,7 @@ export class KeyCombo {
   }
 
   /**
-   * Generates combo string of `k` separated by `d`
+   * Generates combo string of `keys` separated by `delim`
    *
    * @param {string} delim delimiter
    * @param {string[]} keys array of key names

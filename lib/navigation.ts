@@ -4,7 +4,7 @@ import { DimensionStore, KbNavBehaviorParams } from "./types";
 import { getWidth } from "./utils/dom";
 
 /**
- * Adds keyboard navigation to `nc`
+ * Adds keyboard navigation to `navigationContainer`
  *
  * @param {KeyMap<T extends HTMLElement>} keymap key map to use
  * @param {T extends HTMLElement} navigationContainer navigation container

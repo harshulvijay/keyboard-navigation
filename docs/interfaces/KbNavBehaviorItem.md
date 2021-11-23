@@ -38,7 +38,7 @@ If not set, default browser behavior will be prevented.
 
 #### Defined in
 
-[types.ts:28](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L28)
+[types.ts:28](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/types.ts#L28)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[types.ts:29](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L29)
+[types.ts:29](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/types.ts#L29)
 
 ## Methods
 
@@ -68,4 +68,4 @@ ___
 
 #### Defined in
 
-[types.ts:21](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L21)
+[types.ts:21](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/types.ts#L21)

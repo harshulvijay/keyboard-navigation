@@ -54,7 +54,7 @@ keyboard-navigation
 
 #### Defined in
 
-[types.ts:53](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L53)
+[types.ts:53](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/types.ts#L53)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[types.ts:55](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L55)
+[types.ts:55](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/types.ts#L55)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[types.ts:57](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/types.ts#L57)
+[types.ts:57](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/types.ts#L57)
 
 ## Functions
 
@@ -88,7 +88,7 @@ ___
 
 ▸ `Const` **addKbNav**<`T`\>(`keymap`, `navigationContainer`, `selector`): `void`
 
-Adds keyboard navigation to `nc`
+Adds keyboard navigation to `navigationContainer`
 
 #### Type parameters
 
@@ -110,4 +110,4 @@ Adds keyboard navigation to `nc`
 
 #### Defined in
 
-[navigation.ts:13](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/navigation.ts#L13)
+[navigation.ts:13](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/navigation.ts#L13)

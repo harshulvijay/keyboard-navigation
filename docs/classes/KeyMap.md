@@ -49,7 +49,7 @@ Constructor
 
 #### Defined in
 
-[keyMap.ts:22](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L22)
+[keyMap.ts:22](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/keyMap.ts#L22)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Constructor
 
 #### Defined in
 
-[keyMap.ts:15](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L15)
+[keyMap.ts:15](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/keyMap.ts#L15)
 
 ## Methods
 
@@ -67,7 +67,7 @@ Constructor
 
 ▸ **attachBehavior**(`keys`, `options`): `void`
 
-Attaches behavior (`p.behavior`) to each key in `k`
+Attaches behavior (`options.behavior`) to each key in `keys`
 
 #### Parameters
 
@@ -82,7 +82,7 @@ Attaches behavior (`p.behavior`) to each key in `k`
 
 #### Defined in
 
-[keyMap.ts:46](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L46)
+[keyMap.ts:46](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/keyMap.ts#L46)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 ▸ **copy**(`keymap?`): `void`
 
-Merges `m` into the current key map
+Merges `keymap` into the current key map
 
 #### Parameters
 
@@ -104,7 +104,7 @@ Merges `m` into the current key map
 
 #### Defined in
 
-[keyMap.ts:80](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L80)
+[keyMap.ts:80](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/keyMap.ts#L80)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 ▸ **detachBehavior**(`keys`): `void`
 
-Detaches (deletes) behavior for each key/key combo in `k`
+Detaches (deletes) behavior for each key/key combo in `keys`
 
 #### Parameters
 
@@ -126,7 +126,7 @@ Detaches (deletes) behavior for each key/key combo in `k`
 
 #### Defined in
 
-[keyMap.ts:93](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L93)
+[keyMap.ts:93](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/keyMap.ts#L93)
 
 ___
 
@@ -134,9 +134,9 @@ ___
 
 ▸ **mirror**(`keymap?`): `void`
 
-Mirrors map `m`, overriding the current one
+Mirrors map `keymap`, overriding the current one
 
-It basically sets the current map to a live reference of `m`
+It basically sets the current map to a live reference of `keymap`
 
 #### Parameters
 
@@ -150,4 +150,4 @@ It basically sets the current map to a live reference of `m`
 
 #### Defined in
 
-[keyMap.ts:107](https://github.com/harshulvijay/keyboard-navigation/blob/9fb72fc/lib/keyMap.ts#L107)
+[keyMap.ts:107](https://github.com/harshulvijay/keyboard-navigation/blob/8ef1f7b/lib/keyMap.ts#L107)
